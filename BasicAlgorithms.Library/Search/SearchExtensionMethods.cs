@@ -1,4 +1,6 @@
-﻿namespace BasicAlgorithms.Library.Search
+﻿using BasicAlgorithms.Library.Sorting;
+
+namespace BasicAlgorithms.Library.Search
 {
     public static class SearchExtensionMethods
     {
@@ -30,6 +32,7 @@
         public static int BinarySearch<T>(this T[] array, T value) where T : IComparable<T>
         {
             ArgumentNullException.ThrowIfNull(array, nameof(array));
+            array = array.BubbleSort();
             int left = 0;
             int right = array.Length - 1;
             while (left <= right)
